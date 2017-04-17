@@ -1,13 +1,13 @@
-```
-Author: Rodolfo Ferro Pérez
-Email: ferro@cimat.mx
-Twitter: @FerroRodolfo
-```
+**Author:** Rodolfo Ferro Pérez
+**Email:** [ferro@cimat.mx](ferro@cimat.mx)
+**Twitter:** [@FerroRodolfo](http://twitter.com/FerroRodolfo)
+
 ### ABOUT COPYING OR USING PARTIAL INFORMATION: 🔐
 > These documents were originally created by the author.
 > Any usage of these documents or its contents must be granted by the author.
 > You can contact him via email or Twitter.
 
+***
 
 # Primeros pasos con Python: Manipulando imágenes 🖼⟷💻
 
