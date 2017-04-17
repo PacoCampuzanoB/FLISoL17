@@ -10,12 +10,10 @@
 % the author. You can contact him via email or Twitter.
 %===============================================================
 
-\documentclass{beamer}
+\documentclass[usenames,dvipsnames]{beamer}
 \usetheme{metropolis} % Use metropolis theme
 
 % Import packages:
-%\usepackage{fontspec}
-%\usepackage{coloremoji}
 \usepackage[many]{tcolorbox}
 \usepackage{wrapfig}
 
@@ -53,7 +51,7 @@
     \includegraphics[scale=0.017]{imgs/python}
   \end{frame}
 
-  \begin{frame}{Un poco de historia I}
+  \begin{frame}{Un poco de historia (I)}
     \begin{itemize}
       \item Python fue creado a inicios de los 90's por Guido van Rossum en el
       \textit{Stichting Mathematisch Centrum} (CWI), en los Países Bajos, como
@@ -64,7 +62,7 @@
     \end{itemize}
   \end{frame}
 
-  \begin{frame}{Un poco de historia II}
+  \begin{frame}{Un poco de historia (II)}
     \begin{itemize}
       \item En mayo del 2000, Guido y el equipo core de desarrollo de Python
       se mudan a \textit{BeOpen.com} para formar el equipo {BeOpen PythonLabs}.
@@ -182,7 +180,50 @@
   % Third section: Primeros pasos
   \section{Primeros pasos}
   \begin{frame}{Lo básico}
+    La belleza de Python radica en la sintaxis, los bloques de código deben
+    tener la misma indentación, pues las llaves \{ \} se utilizan para una
+    estructura de datos (diccionarios). Además, no hace falta terminar las
+    líneas de código con punto y coma.
 
+    \begin{block}{Un ejemplo:}
+
+        \hspace{0.7cm}{\color{LimeGreen} \texttt{while }}{\color{Cerulean} \texttt{True}}{\color{LimeGreen} \texttt{:}}\\
+        \hspace{1.4cm}{\color{lightgray} \texttt{\# El bloque de código dentro del ciclo debe}}\\
+        \hspace{1.4cm}{\color{lightgray} \texttt{\# estar en el mismo nivel de indentación}}\\
+
+        \hspace{1.4cm}{\color{LimeGreen} \texttt{print}}{\color{gray} \texttt{(}}{\color{ForestGreen} \texttt{"Infinite loop."}}{\color{gray} \texttt{)}}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Variables y operaciones (I)}
+    \begin{itemize}
+      \item Las variables no se declaran, sólo se definen y Python sabe el
+      tipo de variable que se está utilizando.
+
+      \item Python cuenta con 5 tipos de datos estándar: números, cadenas
+      de texto, listas, tuplas y diccionarios.
+
+      \item Puedes realizar asignación múltiple.
+
+      \item Las operaciones básicas con números son: +, -, *, /, //, **.
+
+      \item En las cadenas de texto también puede usarse + (concatenación)
+      y * (repetición).
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Variables y operaciones (II)}
+    Los tipos de variables que existen en Python son:
+    \begin{itemize}
+      \item \textbf{Enteros}, como 3.
+      \item \textbf{Longs}, como 51924361L.
+      \item \textbf{Flotantes}, como 3.14e4.
+      \item \textbf{Complejos}, como 4.53-7j.
+      \item \textbf{Strings}, como "Hola mundo".
+      \item \textbf{Listas}, como [1., 3, 5.3, "perrito"].
+      \item \textbf{Tuplas}, como (1., 3, 5.3, "perrito").
+      \item \textbf{Diccionarios}, como \{"Nombre":"Rodolfo", "Apellido":"Ferro"\}
+    \end{itemize}
   \end{frame}
 
   % Fourth section: Manipulando imágenes
@@ -239,7 +280,9 @@
       \textbf{OpenSource Computer Vision}.\\
       \textit{Image Manipulation}, 2016.
 
-      \item Third item
+      \item Python Variable Types.\\
+      \textbf{Tutorials Point}.\\
+      \textit{Python Basic Tutorial}.
     \end{enumerate}
   \end{frame}
 \end{document}
