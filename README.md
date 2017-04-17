@@ -17,6 +17,9 @@ I don't use any lib other than `NumPy` and `Matplotlib` to manipulate images, si
 * You can find the scripts folder [here](https://github.com/RodolfoFerro/FLISoL17/tree/master/scripts).
 * You can find some images [here](https://github.com/RodolfoFerro/FLISoL17/tree/master/imgs).
 
+Want to see an awesome fractal? Check this one:
+![Built from Mandelbrot set with Python](https://github.com/RodolfoFerro/FLISoL17/blob/master/imgs/mandel4.png "Built from Mandelbrot set with Python")
+
 ***
 
 ### ABOUT COPYING OR USING PARTIAL INFORMATION: 🔐
