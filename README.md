@@ -6,15 +6,15 @@
 
 ## About 🕹
 
-This is a Python workshop for the *Festival Latinoamericano de Instalación de Software Libre 2017* for which I was invited. It is basically about some Python basics, focused on image manipulation.
+This is a Python 🐍 workshop for the *Festival Latinoamericano de Instalación de Software Libre 2017* for which I was invited at the *Instituto Tecnológico de León*. It is basically a workshop about some Python basics, focused on image manipulation.
 
-I don't use any lib other than `NumPy` and `Matplotlib` to process images, since I was asked to teach from the basics. Even tho, I programmed some image differentials (sober X and sober Y) to illustrate some image processing.
+I don't use any lib other than `NumPy` and `Matplotlib` to manipulate images, since I was asked to teach through the basics. Even tho, I programmed some image derivatives (sobel X and sobel Y) to illustrate some image processing, and programmed some fractals.
 
 
 ## Content 👾
 
-* You can find the lectures [here](https://github.com/RodolfoFerro/FLISoL17/blob/master/lecture/python.pdf).
-* You can find the scripts [here](https://github.com/RodolfoFerro/FLISoL17/tree/master/scripts).
+* You can find the lecture [here](https://github.com/RodolfoFerro/FLISoL17/blob/master/lecture/python.pdf).
+* You can find the scripts folder [here](https://github.com/RodolfoFerro/FLISoL17/tree/master/scripts).
 * You can find some images [here](https://github.com/RodolfoFerro/FLISoL17/tree/master/imgs).
 
 ***
