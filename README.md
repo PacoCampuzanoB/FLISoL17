@@ -7,7 +7,9 @@ Twitter: @FerroRodolfo
 ```
 ### ABOUT COPYING OR USING PARTIAL INFORMATION:
 > These documents were originally created by the author.
+
 > Any usage of these documents or its contents must be granted by the author.
+
 > You can contact him via email or Twitter.
 
 
