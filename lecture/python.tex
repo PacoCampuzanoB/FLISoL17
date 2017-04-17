@@ -129,7 +129,7 @@
     \textbf{En Windows:}
     \begin{itemize}
       \item Preferentemente instalarlo en el disco local \texttt{C://}.
-      \item Dar check a la opción de crear variable de entorno.
+      \item Dar check a la opción "Add Python to PATH".
     \end{itemize}
     \textbf{En Linux/Unix:}
     \begin{itemize}
@@ -142,7 +142,7 @@
     Al instalar Python, se instala \texttt{pip} (\textit{Python Package Index}),
     que es un gestor de paquetes de Python. Usando \texttt{pip} instalaremos:
     \begin{itemize}
-      \item \textbf{Numpy}, que incluye herramientas de métodos numéricos.
+      \item \textbf{NumPy}, que incluye herramientas de métodos numéricos.
       \item \textbf{Matplotlib}, que incluye herramientas de visualización.
     \end{itemize}
     \textbf{Nota:} Python se instala con su librería estándar. Lo recomendable
@@ -179,34 +179,44 @@
 
   % Third section: Primeros pasos
   \section{Primeros pasos}
-  \begin{frame}{Lo básico}
+  \begin{frame}{Lo básico (I)}
     La belleza de Python radica en la sintaxis, los bloques de código deben
     tener la misma indentación, pues las llaves \{ \} se utilizan para una
-    estructura de datos (diccionarios). Además, no hace falta terminar las
-    líneas de código con punto y coma.
+    estructura de datos (diccionarios).\\
 
+    \vspace*{0.5cm}
+    \metroset{block=fill}
     \begin{block}{Un ejemplo:}
-
         \hspace{0.7cm}{\color{LimeGreen} \texttt{while }}{\color{Cerulean} \texttt{True}}{\color{LimeGreen} \texttt{:}}\\
         \hspace{1.4cm}{\color{lightgray} \texttt{\# El bloque de código dentro del ciclo debe}}\\
         \hspace{1.4cm}{\color{lightgray} \texttt{\# estar en el mismo nivel de indentación}}\\
-
-        \hspace{1.4cm}{\color{LimeGreen} \texttt{print}}{\color{gray} \texttt{(}}{\color{ForestGreen} \texttt{"Infinite loop."}}{\color{gray} \texttt{)}}
+        \vspace*{0.5cm}
+        \hspace{1.4cm}{\color{LimeGreen} \texttt{print}}{\color{gray} \texttt{(}}{\color{ForestGreen} \texttt{"Infinite loop."}}{\color{gray} \texttt{)}}\\
+        \vspace*{0.5cm}
     \end{block}
+  \end{frame}
+
+  \begin{frame}{Lo básico (II)}
+    \begin{itemize}
+      \item No hace falta terminar cada línea con punto y coma.
+      \item Los scripts de Python pueden ejecutarse desde consola, usando un IDE o con
+      Jupyter notebooks.
+      \item Todos los scripts de Python deben ser de extensión .py (excepto por los
+      Jupyter notebooks).
+      \item Para fines prácticos, nosotros correremos scripts desde consola y
+      escribiremos código desde un bloc de notas, por lo que es recomendable
+      instalar uno tipo Atom o Sublime Text.
+    \end{itemize}
   \end{frame}
 
   \begin{frame}{Variables y operaciones (I)}
     \begin{itemize}
       \item Las variables no se declaran, sólo se definen y Python sabe el
       tipo de variable que se está utilizando.
-
       \item Python cuenta con 5 tipos de datos estándar: números, cadenas
       de texto, listas, tuplas y diccionarios.
-
       \item Puedes realizar asignación múltiple.
-
       \item Las operaciones básicas con números son: +, -, *, /, //, **.
-
       \item En las cadenas de texto también puede usarse + (concatenación)
       y * (repetición).
     \end{itemize}
@@ -226,6 +236,65 @@
     \end{itemize}
   \end{frame}
 
+  \begin{frame}{Condicionales}
+    La sintaxis correspndiente es:
+    \metroset{block=fill}
+    \begin{block}{if/elif/else}
+      \hspace{0.7cm}{\color{LimeGreen} \texttt{if }}{\color{Cerulean} \texttt{condition}}{\color{LimeGreen} \texttt{:}}\\
+      \hspace{1.4cm}{\color{lightgray} \texttt{\# Block content}}\\
+      \hspace{0.7cm}{\color{LimeGreen} \texttt{elif }}{\color{Cerulean} \texttt{condition}}{\color{LimeGreen} \texttt{:}}\\
+      \hspace{1.4cm}{\color{lightgray} \texttt{\# Block content}}\\
+      \hspace{0.7cm}{\color{LimeGreen} \texttt{else: }}\\
+      \hspace{1.4cm}{\color{lightgray} \texttt{\# Block content}}\\
+      \vspace*{0.5cm}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Ciclos}
+    La sintaxis correspndiente es:
+    \metroset{block=fill}
+    \begin{block}{for}
+      \hspace{0.7cm}{\color{LimeGreen} \texttt{for }}{\color{Cerulean} \texttt{indx }}{\color{LimeGreen} \texttt{in }}{\color{Cerulean} \texttt{iterable}}{\color{LimeGreen} \texttt{:}}\\
+      \hspace{1.4cm}{\color{lightgray} \texttt{\# Block content}}\\
+      \vspace*{0.5cm}
+    \end{block}
+    \vspace*{0.5cm}
+    \begin{block}{while}
+      \hspace{0.7cm}{\color{LimeGreen} \texttt{while }}{\color{Cerulean} \texttt{condition}}{\color{LimeGreen} \texttt{:}}\\
+      \hspace{1.4cm}{\color{lightgray} \texttt{\# Block content}}\\
+      \vspace*{0.5cm}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Funciones}
+    La sintaxis correspndiente es:
+    \metroset{block=fill}
+    \begin{block}{Funciones}
+      \hspace{0.7cm}{\color{LimeGreen} \texttt{def }}{\color{Cerulean} \texttt{function\_name}}{\color{gray} \texttt{(parameters):}}\\
+      \hspace{1.4cm}{\color{lightgray} \texttt{\# Block content}}\\
+      \hspace{1.4cm}{\color{LimeGreen} \texttt{return }}{\color{gray} \texttt{values}}\\
+      \vspace*{0.5cm}
+    \end{block}
+    \vspace*{0.5cm}
+
+    No hay limitación en los parámetros y valores de retorno, en el sentido de
+    puede pasársele cualquier variable o función como argumento y cualesquiera
+    variables pueden ser retornadas en una función.
+  \end{frame}
+
+  \begin{frame}{Para concluir la sección...}
+    Para poder concluir la sección y comenzar a tirar nuestras primeras
+    líneas de código en Python, tengamos claro lo siguiente:
+    \begin{itemize}
+      \item ¿Qué es slicing?
+      \item ¿Por qué conviene utilizar arreglos de NumPy en vez de listas
+      de Python?
+      \item Computacionalmente, ¿qué es una imagen?
+      \item ¿Cuántas dimensiones tiene una imagen?
+      \item ¿Hay alguna otra pregunta?
+    \end{itemize}
+  \end{frame}
+
   % Fourth section: Manipulando imágenes
   \section{Manipulando imágenes}
   \begin{frame}{Objetivos}
@@ -234,6 +303,74 @@
       \includegraphics[width=0.48\textwidth]{imgs/meme}\hspace{0.1cm}
       \includegraphics[width=0.48\textwidth]{imgs/derivatives}
     \end{center}
+  \end{frame}
+
+  \begin{frame}{Importando \textbf{numpy} y \textbf{matplotlib}}
+    Se pueden importar librerías simplemente haciendo \texttt{import librería},
+    sin embargo, se pueden importar módulos específicos (ej. \texttt{from
+    matplotlib import pyplot}) o importar módulos/librerías con un alias.\\
+    \vspace*{0.3cm}
+    Por simpliacidad nosotros importaremos \textbf{numpy} y \textbf{matplotlib}
+    como sigue:
+    \vspace*{0.5cm}
+    \metroset{block=fill}
+    \begin{block}{Importamos usando un alias:}
+      \hspace{0.7cm}{\color{orange} \texttt{import }}{\color{gray} \texttt{numpy }}{\color{LimeGreen} \texttt{as }}{\color{gray} \texttt{np  }}\\
+      \hspace{0.7cm}{\color{orange} \texttt{import }}{\color{gray} \texttt{matplotlib.pyplot }}{\color{LimeGreen} \texttt{as }}{\color{gray} \texttt{plt  }}\\
+      \vspace*{0.5cm}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Mostrando una imagen}
+    Matplotlib tiene una función llamada \texttt{imread}, cuyo argumento es una
+    dirección y sirve para leer una imagen y guardarla como un arreglo de NumPy.\\
+    \vspace*{0.3cm}
+    Podemos imprimir la matriz usando la función \texttt{print} y mostrarla en
+    una ventana haciendo lo que sigue:
+    \metroset{block=fill}
+    \begin{block}{Mostrando una imagen:}
+      \hspace{0.7cm}{\color{gray} \texttt{img = plt.imread(}}{\color{ForestGreen} \texttt{"../imgs/Lenna.png"}}{\color{gray} \texttt{)}}\\
+      \hspace{0.7cm}{\color{gray} \texttt{plt.imshow(img)}}\\
+      \hspace{0.7cm}{\color{gray} \texttt{plt.show()}}\\
+      \vspace*{0.5cm}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Reto para llevar}
+    \vspace*{0.5cm}
+    \metroset{block=fill}
+    \begin{block}{Reto 1:}
+      Dar formato a la trancisión de opacidad para que quede como sigue:\\
+      \centering
+      \includegraphics[width=0.48\textwidth]{imgs/meme}
+      \vspace*{0.5cm}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Reto para llevar}
+    \vspace*{0.5cm}
+    \metroset{block=fill}
+    \begin{block}{Reto 2:}
+      Nuestras funciones de derivadas de imagen funcionan sólo con imágenes
+      que son cuadradas, ¿por qué?\\
+      \vspace*{0.5cm}
+      Corregir esto para que sirva con la imagen \texttt{leaf.png}:\\
+      \centering
+      \includegraphics[width=0.48\textwidth]{../imgs/leaf}
+      \vspace*{0.5cm}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Para concluir la sección...}
+    Para poder concluir la sección y continuar con la siguiente,
+    respondamos:
+    \begin{itemize}
+      \item ¿Resulta sencillo manipular imágenes (arreglos de NumPy,
+      en general)?
+      \item ¿Por qué las derivadas de las imágenes ayudan a
+      encontrar bordes?
+      \item ¿Hay alguna otra pregunta?
+    \end{itemize}
   \end{frame}
 
   % Fifth section: Creando imágenes
@@ -259,12 +396,30 @@
       disponible en \texttt{https://docs.python.org/3/license.html}, 2017.
 
       \item Hipertextual.\\
-      \textbf{¿Qué es Software Libre?}.\\
+      \textbf{¿Qué es Software Libre?}\\
       \textit{Diferencias entre Software Libre y Open Source}, 2014.
 
       \item Hipertextual.\\
-      \textbf{¿Qué es Open Source?}.\\
+      \textbf{¿Qué es Open Source?}\\
       \textit{Diferencias entre Software Libre y Open Source}, 2014.
+    \end{enumerate}
+  \end{frame}
+
+  \begin{frame}{Referencias}
+    \begin{enumerate}[{[}1{]}]
+      \addtocounter{enumi}{3}
+
+      \item The Hitchhiker's Guide to Python.\\
+      \textbf{Python Imaging Library}.\\
+      \textit{Image Manipulation}, 2016.
+
+      \item The Hitchhiker's Guide to Python.\\
+      \textbf{OpenSource Computer Vision}.\\
+      \textit{Image Manipulation}, 2016.
+
+      \item Python Variable Types.\\
+      \textbf{Tutorials Point}.\\
+      \textit{Python Basic Tutorial}.
     \end{enumerate}
   \end{frame}
 

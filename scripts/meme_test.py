@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Open initial image:
-im_i = plt.imread("imgs/me.png")
+im_i = plt.imread("../imgs/me.png")
 im_i = im_i[:,:,:3]
 # Open final image:
-im_f = plt.imread("imgs/pug.jpeg")
+im_f = plt.imread("../imgs/pug.jpeg")
 im_f = im_f[:,:,:3]
 
 # Mid states:
