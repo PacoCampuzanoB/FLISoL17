@@ -31,6 +31,8 @@ $ pip install matplotlib
 
 > If you want not only to install this libs on your user, but in the whole system, use `sudo`.
 
+#### Checking your installation:
+
 To check if the installation was successful, on the open terminal open your Python prompt by entering:
 ```
 $ python
