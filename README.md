@@ -1,5 +1,7 @@
 **Author:** Rodolfo Ferro Pérez
+
 **Email:** [ferro@cimat.mx](ferro@cimat.mx)
+
 **Twitter:** [@FerroRodolfo](http://twitter.com/FerroRodolfo)
 
 ### ABOUT COPYING OR USING PARTIAL INFORMATION: 🔐
