@@ -40,7 +40,7 @@ $ python
 Something like this should have appeared in your console:
 ![Python prompt](https://github.com/RodolfoFerro/FLISoL17/blob/master/imgs/prompt.png "Python prompt")
 
-Now try to import numpy and matplotlib as follows:
+Now try to import `numpy` and `matplotlib` as follows:
 ```
 >>> import numpy
 >>> import matplotlib
