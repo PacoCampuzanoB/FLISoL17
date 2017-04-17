@@ -1,10 +1,3 @@
-### ABOUT COPYING OR USING PARTIAL INFORMATION: 🔐
-> These documents were originally created by the author.
-> Any usage of these documents or its contents must be granted by the author.
-> You can contact him via email or Twitter.
-
-***
-
 # Primeros pasos con Python: Manipulando imágenes 🖼⟷💻
 
 > **Author:** Rodolfo Ferro Pérez <br/>
@@ -23,3 +16,10 @@ I don't use any lib other than `NumPy` and `Matplotlib` to process images, since
 * You can find the lectures [here](https://github.com/RodolfoFerro/FLISoL17/blob/master/lecture/python.pdf).
 * You can find the scripts [here](https://github.com/RodolfoFerro/FLISoL17/tree/master/scripts).
 * You can find some images [here](https://github.com/RodolfoFerro/FLISoL17/tree/master/imgs).
+
+***
+
+### ABOUT COPYING OR USING PARTIAL INFORMATION: 🔐
+> These documents were originally created by the author.
+> Any usage of these documents or its contents must be granted by the author.
+> You can contact him via email or Twitter.
