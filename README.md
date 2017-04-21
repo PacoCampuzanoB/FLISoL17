@@ -1,7 +1,7 @@
 # Primeros pasos con Python: Manipulando imágenes 🖼⟷💻
 
 > **Author:** Rodolfo Ferro Pérez <br/>
-> **Email:** [ferro@cimat.mx](ferro@cimat.mx) <br/>
+> **Email:** [ferro@cimat.mx](mailto:ferro@cimat.mx) <br/>
 > **Twitter:** [@FerroRodolfo](http://twitter.com/FerroRodolfo) <br/>
 
 ## About 🕹
