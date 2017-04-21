@@ -8,6 +8,13 @@
 # talk in FLISoL 2017 at Instituto Tecnológico de León. Any
 # explicit usage of this script or its contents must be granted
 # by the author. You can contact him via email or Twitter.
+#
+#
+# This script was created based on the idea of this post:
+""" https://www.ibm.com/developerworks/community/blogs/
+    jfp/entry/How_To_Compute_Mandelbrodt_Set_Quickly """
+# And the numba's jit official example for the Mandelbrot set:
+""" http://numba.pydata.org/numba-doc/dev/user/examples.html """
 # ===============================================================
 
 
@@ -52,20 +59,26 @@ def create_fractal(min_x, max_x, min_y, max_y, image, iters):
 
     return image
 
-image = np.zeros((1024, 1024), dtype=np.uint8)
+# Create fractal image:
+image = np.zeros((4800, 4800), dtype=np.uint8)
+# create_fractal(-2., 2., -2., 2., image, 50)
 # create_fractal(-0.555, -0.550, -0.555, -0.550, image, 300)
 create_fractal(-0.74877, -0.74872, 0.065053, 0.065103, image, 2048)
-# create_fractal(-2., 2., -2., 2., image, 50)
 
-# Create your figure and axes
+# Create your figure and axes:
 fig, ax = pylab.subplots(1, figsize=(8,8))
-# Set whitespace to 0
+
+# Set whitespace to 0:
 fig.subplots_adjust(left=0,right=1,bottom=0,top=1)
 
+# Set colormap and display image:
 pylab.set_cmap("magma")
 pylab.imshow(image)
-# Turn off axes and set axes limits
+
+# Turn off axes and set axes limits:
 ax.axis('tight')
 ax.axis('off')
+
+# Save figure and show:
 pylab.savefig("../imgs/mandel.png", dpi=600)
 pylab.show()
