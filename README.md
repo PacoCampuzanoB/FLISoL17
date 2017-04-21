@@ -6,7 +6,7 @@
 
 ## About 🕹
 
-This is a Python 🐍 workshop for the *Festival Latinoamericano de Instalación de Software Libre 2017 ([FLISoL](http://flisol.itleon.edu.mx))* for which I was invited at the *Instituto Tecnológico de León*. It is basically a workshop about some Python basics, focused on image manipulation.
+This is a Python 🐍 workshop for the *Festival Latinoamericano de Instalación de Software Libre 2017 ([FLISoL](https://flisol.info/FLISOL2017/Mexico/Leon))* for which I was invited at the *Instituto Tecnológico de León*. It is basically a workshop about some Python basics, focused on image manipulation.
 
 I don't use any lib other than NumPy and Matplotlib to manipulate images, since I was asked to teach through the basics. Even tho, I coded some image derivatives (sobel X and sobel Y) to illustrate some image processing, and coded some fractals.
 
