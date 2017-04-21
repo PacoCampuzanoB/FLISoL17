@@ -62,4 +62,4 @@ If any error is raised, congrats! Now you're all set to go.
 
 
 #### Want to see an awesome fractal? Check this one:
-![Built from Mandelbrot set using Python](https://github.com/RodolfoFerro/FLISoL17/blob/master/imgs/mandel4.png "Built from Mandelbrot set using Python")
+![Built from Mandelbrot set using Python](https://github.com/RodolfoFerro/FLISoL17/blob/master/imgs/mandel.png "Built from Mandelbrot set using Python")
