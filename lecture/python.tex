@@ -24,10 +24,11 @@
 \begin{wrapfigure}{r}{0.3\textwidth}
   \vspace{-30pt}
   \begin{center}
-    % \hspace*{-2cm}
+    \hspace*{-2cm}
     \includegraphics[width=0.3\textwidth]{imgs/flisol}
-    % \hspace*{-6.3cm}
-    % \includegraphics[width=0.3\textwidth]{imgs/GDGLeon}
+    \hspace*{-4.6cm}
+    \vspace{6pt}
+    \includegraphics[width=0.15\textwidth]{imgs/GDG}
   \end{center}
 \end{wrapfigure}
 }
@@ -464,10 +465,97 @@
   % Fifth section: Creando imágenes
   \section{Creando imágenes}
   \begin{frame}{Objetivos}
-    Queremos ser capaces de recrear la siguiente imagen:
+    Queremos ser capaces de recrear las siguientes imágenes:\\
+    \vspace*{0.3cm}
+    \centering
+    \hspace*{-0.35cm}
+    \includegraphics[width=0.53\textwidth]{imgs/mandel}
+    \includegraphics[width=0.53\textwidth]{../imgs/mandel}
+  \end{frame}
+
+  \begin{frame}{¿Por qué un fractal?}
+    Como una imagen es una matriz, es muy fácil que seamos capaces de crear
+    una imagen con contenido basura, por lo que resulta ser más interesante
+    construir una imagen a partir de un ente geométrico.\\
+    \vspace*{0.3cm}
+    Primero necesitamos entender cómo se constrye un fractal, en particular,
+    el Conjunto de Mandelbrot.
     \begin{center}
-      \includegraphics[width=0.6\textwidth]{imgs/mandel}\hspace{0.5cm}
+      \includegraphics[width=0.3\textwidth]{imgs/mini_mandel}
     \end{center}
+  \end{frame}
+
+  \begin{frame}{Construyendo el conjunto de Mandelbrot (I)}
+    \begin{wrapfigure}{l}{0.3\textwidth}
+      \begin{center}
+        \vspace*{-1.5cm}
+        \includegraphics[width=0.3\textwidth]{imgs/complex}
+      \end{center}
+    \end{wrapfigure}
+    Recordando que un complejo es un número de la forma $x+iy$ y que tiene una
+    representación en el plano; el conjunto de Mandelbrot se construye al iterar
+    un número complejo $z$ en la función $f_c(z) = z^2 + c$, para un complejo $c$.
+  \end{frame}
+
+  \begin{frame}{Construyendo el conjunto de Mandelbrot (II)}
+    Por ejemplo, comenzando en $z = 0 + i0 = 0$, para el complejo
+    $c = 0.25 + i0 = 0.25$, tendríamos:
+    \begin{align*}
+    f_{0.25}(0) &=  0^2 + 0.25 = 0.25\\
+    f_{0.25}(0.25) &=  0.25^2 + 0.25 = 0.625 + 0.25 = 0.65\\
+    f_{0.25}(0.65) &=  0.65^2 + 0.25 = 0.4225 + 0.25 = 0.4235\\
+    \vdots\hspace*{0.5cm} &= \hspace*{0.5cm}\vdots
+    \end{align*}
+    De aquí podemos notar que la sucesión no crece arbitrariamente.
+    Sin embargo, ¿qué sucede con otros números, como 1 ($1 + i0$)?
+  \end{frame}
+
+  \begin{frame}{Código}
+    La idea es crear una función que itere un complejo dado hasta
+    un máximo de iteraciones (en caso de no crecer arbitrariamente).\\
+    \vspace*{0.3cm}
+    Teniendo dicha función, habrá que usarla dentro de otra para que
+    vaya recorriendo cada complejo en una región y vaya creando el fractal.
+    El color del pixel en ese punto está asociado con el nivel de iteración,
+    por lo que será necesario tener una condición de paro necesaria en caso
+    de crecer arbitrariamente.\\
+    \vspace*{0.3cm}
+    \metroset{block=fill}
+    \begin{block}{Función que itera:}
+      \hspace{0.7cm}{\color{LimeGreen} \texttt{def }}{\color{Cerulean} \texttt{mandel}}{\color{gray} \texttt{(x, y, max\_iters):}}\\
+      \hspace{1.4cm}{\color{gray} \texttt{z, c = }}{\color{magenta} \texttt{0j}}{\color{gray} \texttt{, }}{\color{Cerulean} \texttt{complex}}{\color{gray} \texttt{(x, y)}}\\
+      \hspace{1.4cm}{\color{LimeGreen} \texttt{for }}{\color{gray} \texttt{i }}{\color{LimeGreen} \texttt{in }}{\color{Cerulean} \texttt{range}}{\color{gray} \texttt{(max\_iters):}}\\
+      \hspace{2.8cm}{\color{LimeGreen} \texttt{return }}{\color{magenta} \texttt{255}}{\color{gray} \texttt{ * i // max\_iters}}\\
+      \hspace{1.4cm}{\color{LimeGreen} \texttt{return }}{\color{magenta} \texttt{255}}\\
+      \vspace*{0.5cm}
+    \end{block}
+    Script: \texttt{mandel.py}
+  \end{frame}
+
+  \begin{frame}{Reto para llevar}
+    \vspace*{0.5cm}
+    \metroset{block=fill}
+    \begin{block}{Reto 3:}
+      Construir un conjunto de Julia a partir del código \texttt{mandel.py}.
+      (Pueden revisar a {\color{Turquoise} @JuliaSetBot} en Twitter para
+      ver ejemplos de conjuntos de Julia generados con sus respectivos
+      complejos.)\\
+      \vspace*{0.5cm}
+      \centering
+      \includegraphics[width=0.6\textwidth]{imgs/julia}\\
+      \vspace*{0.5cm}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Para concluir la sección...}
+    Para poder concluir la sección y continuar con la siguiente,
+    respondamos:
+    \begin{itemize}
+      \item ¿Qué sucede si iteramos otra función, en vez de
+      $f_c(z) = z^2 + c$?
+      \item ¿Cómo se puede mejorar el código para más iteraciones?
+      \item ¿Hay alguna otra pregunta?
+    \end{itemize}
   \end{frame}
 
   % Questions
@@ -531,6 +619,11 @@
     \begin{enumerate}[{[}1{]}]
       \addtocounter{enumi}{8}
 
+      \item Complex number.\\
+      \textbf{Complex number}.\\
+      \textit{Wikipedia, the free encyclopedia},
+      disponible en \texttt{https://en.wikipedia.org/wiki/Complex\_number}.
+
       \item The Mandelbrot Set.\\
       \textbf{The Mandelbrot Set - Numberphile}.\\
       \textit{Numberphile},
@@ -540,5 +633,17 @@
       \textbf{How To Quickly Compute The Mandelbrot Set In Python}.\\
       \textit{JeanFrancoisPuget}, 2015.
     \end{enumerate}
+  \end{frame}
+
+  % Thanks
+  \begin{frame}[standout]
+    \includegraphics[width=0.2\textwidth]{imgs/me}\\
+    {\color{Turquoise} \textsc{@FerroRodolfo}}\\
+    Repositorio del taller:\\
+    {\color{orange} \url{https://github.com/RodolfoFerro/FLISoL17}}\\
+    \vspace*{0.3cm}
+    \noindent {\color{white} \rule{0.3\linewidth}{1mm} }\\
+    \vspace*{0.3cm}
+    ¡Gracias por su atención!
   \end{frame}
 \end{document}
