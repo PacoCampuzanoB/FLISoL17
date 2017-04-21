@@ -180,6 +180,12 @@
 
   % Third section: Primeros pasos
   \section{Primeros pasos}
+  \begin{frame}{El prompt de Python}
+    \begin{center}
+      \includegraphics[width=1.0\textwidth]{imgs/prompt}
+    \end{center}
+  \end{frame}
+
   \begin{frame}{Lo básico (I)}
     La belleza de Python radica en la sintaxis, los bloques de código deben
     tener la misma indentación, pues las llaves \{ \} se utilizan para una
@@ -424,6 +430,19 @@
     Script: \texttt{crop\_img.py}
   \end{frame}
 
+  \begin{frame}{6. Derivando una imagen}
+    La derivada de una imagen no es más que un barrido calculando las
+    diferencias entre el pixel en el que te encuentras y el anterior:
+    $$diff_X = img[:,1:j] - img[:,0:j-1]$$
+    $$diff_Y = img[1:i,:] - img[0:i-1,:]$$
+
+    Con estas derivadas podemos construir una aproximación del
+    gradiente de una imagen:
+    $$grad \sim (diff_X^{\hspace*{0.1cm}2} + diff_Y^{\hspace*{0.1cm}2})^{0.5}$$
+
+    Script: \texttt{derivatives.py}
+  \end{frame}
+
   \begin{frame}{Reto para llevar}
     \vspace*{0.5cm}
     \metroset{block=fill}
@@ -510,23 +529,65 @@
     Sin embargo, ¿qué sucede con otros números, como 1 ($1 + i0$)?
   \end{frame}
 
-  \begin{frame}{Código}
-    La idea es crear una función que itere un complejo dado hasta
-    un máximo de iteraciones (en caso de no crecer arbitrariamente).\\
-    \vspace*{0.3cm}
-    Teniendo dicha función, habrá que usarla dentro de otra para que
-    vaya recorriendo cada complejo en una región y vaya creando el fractal.
-    El color del pixel en ese punto está asociado con el nivel de iteración,
-    por lo que será necesario tener una condición de paro necesaria en caso
-    de crecer arbitrariamente.\\
-    \vspace*{0.3cm}
+  \begin{frame}{Construyendo el conjunto de Mandelbrot (III)}
+    \begin{itemize}
+      \item La idea es crear una función que itere un complejo dado hasta
+      un máximo de iteraciones (en caso de no crecer arbitrariamente).\\
+      \item Teniendo dicha función, habrá que usarla dentro de otra para que
+      vaya recorriendo cada complejo en una región y vaya creando el fractal.\\
+    \end{itemize}
+    \textbf{Nota:} El color del pixel en ese punto está asociado con el nivel
+    de iteración, por lo que será necesario tener una condición de paro
+    necesaria en caso de crecer arbitrariamente. Esta condición de paro está
+    relacionada con un acotamiento del conjunto.
+  \end{frame}
+
+  \begin{frame}{Código (I)}
     \metroset{block=fill}
     \begin{block}{Función que itera:}
-      \hspace{0.7cm}{\color{LimeGreen} \texttt{def }}{\color{Cerulean} \texttt{mandel}}{\color{gray} \texttt{(x, y, max\_iters):}}\\
-      \hspace{1.4cm}{\color{gray} \texttt{z, c = }}{\color{magenta} \texttt{0j}}{\color{gray} \texttt{, }}{\color{Cerulean} \texttt{complex}}{\color{gray} \texttt{(x, y)}}\\
-      \hspace{1.4cm}{\color{LimeGreen} \texttt{for }}{\color{gray} \texttt{i }}{\color{LimeGreen} \texttt{in }}{\color{Cerulean} \texttt{range}}{\color{gray} \texttt{(max\_iters):}}\\
-      \hspace{2.8cm}{\color{LimeGreen} \texttt{return }}{\color{magenta} \texttt{255}}{\color{gray} \texttt{ * i // max\_iters}}\\
-      \hspace{1.4cm}{\color{LimeGreen} \texttt{return }}{\color{magenta} \texttt{255}}\\
+      \vspace*{0.5cm}
+      \hspace{0.3cm}{\color{LimeGreen} \texttt{def }}{\color{Cerulean} \texttt{mandel}}{\color{gray} \texttt{(x, y, max\_iters):}}\\
+      \hspace{1.0cm}{\color{gray} \texttt{c = }}{\color{Cerulean} \texttt{complex}}{\color{gray} \texttt{(x, y)}}\\
+      \hspace{1.0cm}{\color{gray} \texttt{z = }}{\color{magenta} \texttt{0j}}\\
+      \hspace{1.0cm}{\color{LimeGreen} \texttt{for }}{\color{gray} \texttt{i }}{\color{LimeGreen} \texttt{in }}{\color{Cerulean} \texttt{range}}{\color{gray} \texttt{(max\_iters):}}\\
+      \hspace{1.7cm}{\color{gray} \texttt{z = z*z + c}}\\
+      \hspace{1.7cm}{\color{LimeGreen} \texttt{if }}{\color{gray} \texttt{z.real * z.real + z.imag * z.imag >= }}{\color{magenta} \texttt{4}}{\color{gray} \texttt{:}}\\
+      \hspace{2.4cm}{\color{LimeGreen} \texttt{return }}{\color{magenta} \texttt{255}}{\color{gray} \texttt{ * i // max\_iters}}\\
+      \vspace*{0.5cm}
+      \hspace{1.0cm}{\color{LimeGreen} \texttt{return }}{\color{magenta} \texttt{255}}\\
+      \vspace*{0.5cm}
+    \end{block}
+    Script: \texttt{mandel.py}
+  \end{frame}
+
+  \begin{frame}{Código (II)}
+    \metroset{block=fill}
+    \begin{block}{Función que calcula el fractal...}
+      \vspace*{0.5cm}
+      \hspace{0.3cm}{\color{LimeGreen} \texttt{def }}{\color{Cerulean} \texttt{create\_fractal}}{\color{gray} \texttt{(min\_x, max\_x, min\_y, max\_y,\\
+      \hspace{3.8cm} image, iters):}}\\
+      \vspace*{0.5cm}
+      \hspace{1.0cm}{\color{gray} \texttt{height = image.shape[}}{\color{magenta} \texttt{0}}{\color{gray} \texttt{]}}\\
+      \hspace{1.0cm}{\color{gray} \texttt{width  = image.shape[}}{\color{magenta} \texttt{1}}{\color{gray} \texttt{]}}\\
+      \vspace*{0.5cm}
+      \hspace{1.0cm}{\color{gray} \texttt{pixel\_size\_x = (max\_x - min\_x) / width}}\\
+      \hspace{1.0cm}{\color{gray} \texttt{pixel\_size\_y = (max\_y - min\_y) / height}}\\
+      \vspace*{0.5cm}
+    \end{block}
+    Script: \texttt{mandel.py}
+  \end{frame}
+
+  \begin{frame}{Código (III)}
+    \metroset{block=fill}
+    \begin{block}{...continuación:}
+      \vspace*{0.5cm}
+      \hspace{1.0cm}{\color{LimeGreen} \texttt{for }}{\color{gray} \texttt{x }}{\color{LimeGreen} \texttt{in }}{\color{Cerulean} \texttt{range}}{\color{gray} \texttt{(width):}}\\
+      \hspace{1.0cm}{\color{gray} \texttt{real = min\_x + x * pixel\_size\_x}}\\
+      \hspace{1.7cm}{\color{LimeGreen} \texttt{for }}{\color{gray} \texttt{y }}{\color{LimeGreen} \texttt{in }}{\color{Cerulean} \texttt{range}}{\color{gray} \texttt{(height):}}\\
+      \hspace{2.4cm}{\color{gray} \texttt{imag  = min\_y + y * pixel\_size\_y}}\\
+      \hspace{2.4cm}{\color{gray} \texttt{image[y, x] = color}}\\
+      \vspace*{0.5cm}
+      \hspace{1.0cm}{\color{LimeGreen} \texttt{return }}{\color{gray} \texttt{image}}\\
       \vspace*{0.5cm}
     \end{block}
     Script: \texttt{mandel.py}
