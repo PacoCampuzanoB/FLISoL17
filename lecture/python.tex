@@ -19,7 +19,7 @@
 
 \title{Primeros pasos con Python:}
 \subtitle{Manipulando imágenes}
-\author{Rodolfo Ferro\\{\footnotesize \textsc{@FerroRodolfo}}}
+\author{Rodolfo Ferro\\{\footnotesize \textcolor{Turquoise}{\textsc{@FerroRodolfo}}}}
 \institute{Universidad de Guanajuato\\ CIMAT A.C.\\
 \begin{wrapfigure}{r}{0.3\textwidth}
   \vspace{-30pt}
@@ -45,10 +45,10 @@
   % First section: Acerca de Python
   \section{Sobre Python}
   \begin{frame}[standout]
-    \textit{"Python es un lenguaje interpretado, sencillo, versátil y poderoso.
-    La belleza del lenguaje radica en su sintaxis."}\\
+    \textit{Python es un lenguaje interpretado, sencillo, versátil y poderoso.
+    La belleza del lenguaje radica en su sintaxis.}\\
     \vspace{1.4cm}
-    \includegraphics[scale=0.017]{imgs/python}
+    \includegraphics[scale=0.02]{imgs/python}
   \end{frame}
 
   \begin{frame}{Un poco de historia (I)}
@@ -237,7 +237,7 @@
   \end{frame}
 
   \begin{frame}{Condicionales}
-    La sintaxis correspndiente es:
+    La sintaxis correspondiente es:
     \metroset{block=fill}
     \begin{block}{if/elif/else}
       \hspace{0.7cm}{\color{LimeGreen} \texttt{if }}{\color{Cerulean} \texttt{condition}}{\color{LimeGreen} \texttt{:}}\\
@@ -251,7 +251,7 @@
   \end{frame}
 
   \begin{frame}{Ciclos}
-    La sintaxis correspndiente es:
+    La sintaxis correspondiente es:
     \metroset{block=fill}
     \begin{block}{for}
       \hspace{0.7cm}{\color{LimeGreen} \texttt{for }}{\color{Cerulean} \texttt{indx }}{\color{LimeGreen} \texttt{in }}{\color{Cerulean} \texttt{iterable}}{\color{LimeGreen} \texttt{:}}\\
@@ -267,7 +267,7 @@
   \end{frame}
 
   \begin{frame}{Funciones}
-    La sintaxis correspndiente es:
+    La sintaxis correspondiente es:
     \metroset{block=fill}
     \begin{block}{Funciones}
       \hspace{0.7cm}{\color{LimeGreen} \texttt{def }}{\color{Cerulean} \texttt{function\_name}}{\color{gray} \texttt{(parameters):}}\\
@@ -314,14 +314,27 @@
     \end{center}
   \end{frame}
 
-  \begin{frame}{Importando \textbf{numpy} y \textbf{matplotlib}}
+  \begin{frame}{Para ello...}
+    Lo que necesitamos aprender es lo siguiente:
+    \vspace*{0.5cm}
+    \begin{enumerate}
+      \item Desplegar una imagen
+      \item Operar una imagen
+      \item Realizar una transición de opacidad
+      \item Acceder a pixeles y subsecciones
+      \item Cortando imágenes
+      \item Programar derivadas
+    \end{enumerate}
+  \end{frame}
+
+  \begin{frame}{Importando \textbf{NumPy} y \textbf{Matplotlib}}
     Se pueden importar librerías simplemente haciendo \texttt{import librería},
     sin embargo, se pueden importar módulos específicos (ej. \texttt{from
     matplotlib import pyplot}) o importar módulos/librerías con un alias.\\
     \vspace*{0.3cm}
-    Por simpliacidad nosotros importaremos \textbf{numpy} y \textbf{matplotlib}
+    Por simpliacidad nosotros importaremos \textbf{NumPy} y \textbf{Matplotlib}
     como sigue:
-    \vspace*{0.5cm}
+    \vspace*{0.3cm}
     \metroset{block=fill}
     \begin{block}{Importamos usando un alias:}
       \hspace{0.7cm}{\color{orange} \texttt{import }}{\color{gray} \texttt{numpy }}{\color{LimeGreen} \texttt{as }}{\color{gray} \texttt{np  }}\\
@@ -330,26 +343,91 @@
     \end{block}
   \end{frame}
 
-  \begin{frame}{Mostrando una imagen}
+  \begin{frame}{1. Desplegando una imagen}
     Matplotlib tiene una función llamada \texttt{imread}, cuyo argumento es una
     dirección y sirve para leer una imagen y guardarla como un arreglo de NumPy.\\
     \vspace*{0.3cm}
     Podemos imprimir la matriz usando la función \texttt{print} y mostrarla en
     una ventana haciendo lo que sigue:
+    \vspace*{0.3cm}
     \metroset{block=fill}
-    \begin{block}{Mostrando una imagen:}
+    \begin{block}{Después de importar...}
       \hspace{0.7cm}{\color{gray} \texttt{img = plt.imread(}}{\color{ForestGreen} \texttt{"../imgs/Lenna.png"}}{\color{gray} \texttt{)}}\\
       \hspace{0.7cm}{\color{gray} \texttt{plt.imshow(img)}}\\
       \hspace{0.7cm}{\color{gray} \texttt{plt.show()}}\\
       \vspace*{0.5cm}
     \end{block}
+    Script: \texttt{show\_img.py}
+  \end{frame}
+
+  \begin{frame}{2. Operando una imagen}
+    Dado que las imágenes son matrices, es muy fácil operar imágenes utilizando
+    NumPy.\\
+    \vspace*{0.3cm}
+    Basta hacer la operación directa en la imagen o utilizar alguna función de
+    NumPy para operar:
+    \vspace*{0.3cm}
+    \metroset{block=fill}
+    \begin{block}{Después de importar y cargar una imagen inicial...}
+      \hspace{0.7cm}{\color{gray} \texttt{opr = img ** }}{\color{magenta} \texttt{0.5}}\\
+      \hspace{0.7cm}{\color{gray} \texttt{opr = np.cos(img)}}\\
+      \hspace{0.7cm}{\color{gray} \texttt{plt.imshow(opr)}}\\
+      \hspace{0.7cm}{\color{gray} \texttt{plt.show()}}\\
+      \vspace*{0.5cm}
+    \end{block}
+    Script: \texttt{operating\_imgs.py}
+  \end{frame}
+
+  \begin{frame}{3. Transición de opacidad}
+    Una transición de opacidad para dos imágenes $A$ y $B$ está definida como
+    sigue:
+    $$op\_img = (1 - \alpha) \hspace*{0.2cm} A + \alpha \hspace*{0.2cm} B,$$
+    tomando valores de $\alpha$ en el intervalo [0,1].\\
+    \vspace*{0.3cm}
+    Por ejemplo el primer estado intermedio:
+    \vspace*{0.3cm}
+    \metroset{block=fill}
+    \begin{block}{Habiendo cargado una imagen inicial y una final...}
+      \hspace{0.7cm}{\color{gray} \texttt{op\_img = }}{\color{magenta} \texttt{0.7}}{\color{gray} \texttt{*im\_i + }}{\color{magenta} \texttt{0.3}}{\color{gray} \texttt{*im\_f}}\\
+      \hspace{0.7cm}{\color{gray} \texttt{plt.imshow(op\_img)}}\\
+      \hspace{0.7cm}{\color{gray} \texttt{plt.show()}}\\
+      \vspace*{0.5cm}
+    \end{block}
+    Script: \texttt{opacity.py}
+  \end{frame}
+
+  \begin{frame}{4. Accediendo a pixeles y subsecciones}
+    Dado que las imágenes son matrices, accedemos a un pixel como si accediéramos
+    a un elemento cualquiera de la matriz que representa a la imagen:
+    $$pixel_{\{i,j\}} = img[i,j]$$
+
+    De la misma manera, utilizando slicing podemos acceder a regiones de la
+    imagen:
+    $$region_{\{X\times Y\}} = img[y_i:y_j, x_i:x_j]$$
+  \end{frame}
+
+  \begin{frame}{5. Cortando una imagen}
+    Con lo anterior, es muy fácil cortar y obtener una nueva imagen:
+    $$region_{\{X\times Y\}} = img[y_i:y_j, x_i:x_j],$$
+    simplemente hace falta guardar el resultado.\\
+    \vspace*{0.3cm}
+    \metroset{block=fill}
+    \begin{block}{Habiendo importado librerías...}
+      \hspace{0.7cm}{\color{gray} \texttt{img = plt.imread(}}{\color{ForestGreen} \texttt{"Lenna.png"}}{\color{gray} \texttt{)}}\\
+      \hspace{0.7cm}{\color{gray} \texttt{cropped\_img = img[}}{\color{magenta} \texttt{220}}{\color{gray} \texttt{:}}{\color{magenta} \texttt{300}}{\color{gray} \texttt{, }}{\color{magenta} \texttt{210}}{\color{gray} \texttt{:}}{\color{magenta} \texttt{370}}{\color{gray} \texttt{]}}\\
+      \hspace{0.7cm}{\color{gray} \texttt{plt.imshow(cropped\_img)}}\\
+      \hspace{0.7cm}{\color{gray} \texttt{plt.show()}}\\
+      \hspace{0.7cm}{\color{gray} \texttt{img = plt.imsave(}}{\color{ForestGreen} \texttt{"Lenna.png"}}{\color{gray} \texttt{, cropped\_img)}}\\
+      \vspace*{0.5cm}
+    \end{block}
+    Script: \texttt{crop\_img.py}
   \end{frame}
 
   \begin{frame}{Reto para llevar}
     \vspace*{0.5cm}
     \metroset{block=fill}
     \begin{block}{Reto 1:}
-      Dar formato a la trancisión de opacidad para que quede como sigue:\\
+      Dar formato a la transición de opacidad para que quede como sigue:\\
       \centering
       \includegraphics[width=0.48\textwidth]{imgs/meme}
       \vspace*{0.5cm}
@@ -363,7 +441,7 @@
       Nuestras funciones de derivadas de imagen funcionan sólo con imágenes
       que son cuadradas, ¿por qué?\\
       \vspace*{0.5cm}
-      Corregir esto para que sirva con la imagen \texttt{leaf.png}:\\
+      ¿Cómo \textit{"corregir"} esto para que sirva con la imagen \texttt{leaf.png}?\\
       \centering
       \includegraphics[width=0.48\textwidth]{../imgs/leaf}
       \vspace*{0.5cm}

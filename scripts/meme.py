@@ -1,3 +1,16 @@
+# ===============================================================
+# Author: Rodolfo Ferro Pérez
+# Email: ferro@cimat.mx
+# Twitter: @FerroRodolfo
+#
+# ABOUT COPYING OR USING PARTIAL INFORMATION:
+# This script was originally created by Rodolfo Ferro, for his
+# talk in FLISoL 2017 at Instituto Tecnológico de León. Any
+# explicit usage of this script or its contents must be granted
+# by the author. You can contact him via email or Twitter.
+# ===============================================================
+
+
 from __future__ import unicode_literals
 import numpy as np
 import matplotlib
@@ -42,7 +55,7 @@ plt.suptitle(r"\noindent When sabes programar y te programas una transición \\"
              r"de opacidad $(1-\alpha)A + \alpha B$ para dos imágenes $A$ y \\"
              r"$B$, con $\alpha \in \left[0,1\right]$ y te conviertes en un meme de pug:",
              size=24, multialignment='center')
-plt.figtext(0.548, 0.096, 'This plot was created with the magic of Python.',
+plt.figtext(0.426, 0.096, 'This plot was created with the magic of Python by @FerroRodolfo.',
             color='black', weight='roman', size='x-small')
 
 # Show and save figure:
