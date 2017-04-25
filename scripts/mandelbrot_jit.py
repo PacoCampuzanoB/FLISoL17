@@ -6,8 +6,8 @@
 # ABOUT COPYING OR USING PARTIAL INFORMATION:
 # This script was originally created by Rodolfo Ferro, for his
 # talk in FLISoL 2017 at Instituto Tecnológico de León. Any
-# explicit usage of this script or its contents must be granted
-# by the author. You can contact him via email or Twitter.
+# explicit usage of this script or its contents is granted
+# according to the license provided and its conditions.
 #
 #
 # This script was created based on the idea of this post:
