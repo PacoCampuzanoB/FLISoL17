@@ -57,11 +57,11 @@ If any error is raised, congrats! Now you're all set to go.
 
 ### ABOUT COPYING OR USING PARTIAL INFORMATION: 🔐
 > These documents were originally created by the author.
-> Any usage of these documents or its contents must is granted according to the provided license and its conditions.
+> Any usage of these documents or their contents is granted according to the provided license and its conditions.
 > For any question, you can contact the author via email or Twitter.
 
 
 #### Want to see an awesome fractal? Check this one:
 ![Built from Mandelbrot set using Python](https://github.com/RodolfoFerro/FLISoL17/blob/master/imgs/mandel.png "Built from Mandelbrot set using Python")
 
-** Copyright (c) 2017 Rodolfo Ferro ** 
+**Copyright (c) 2017 Rodolfo Ferro**
