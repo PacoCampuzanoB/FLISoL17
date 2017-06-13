@@ -38,7 +38,7 @@ To check if the installation was successful, on the open terminal open your Pyth
 $ python
 ```
 Something like this should have appeared in your console:
-![Python prompt](https://github.com/RodolfoFerro/FLISoL17/blob/master/lecture/imgs/prompt.png "Python prompt")
+![Python prompt](https://github.com/RodolfoFerro/FLISoL17/blob/master/imgs/prompt.png "Python prompt")
 
 Now try to import `numpy` and `matplotlib` as follows:
 ```
@@ -49,7 +49,7 @@ If any error is raised, congrats! Now you're all set to go.
 
 ## Content 👾
 
-* You can find the lecture [here](https://github.com/RodolfoFerro/FLISoL17/blob/master/lecture/python.pdf).
+* You can find the lecture [here](https://github.com/RodolfoFerro/FLISoL17/tree/master/python.pdf).
 * You can find the scripts folder [here](https://github.com/RodolfoFerro/FLISoL17/tree/master/scripts).
 * You can find some images [here](https://github.com/RodolfoFerro/FLISoL17/tree/master/imgs).
 
